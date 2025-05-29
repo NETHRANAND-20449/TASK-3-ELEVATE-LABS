@@ -1,0 +1,219 @@
+Task 3
+Basic Vulnerability Scan
+
+**Student Name:** NETHRANAND MALIGE  
+**Course:** CYBER SECURITY INTERNSHIP  
+**Assignment:** Task 3 - Vulnerability Scanning on Local PC  
+**Date:** May 29, 2025
+
+## Assignment Objective
+Perform a comprehensive vulnerability scan on my local computer to identify security weaknesses and assess risk levels using professional vulnerability scanning tools.
+
+## Tools Used
+- **Nessus Expert** - Professional vulnerability scanner
+- **Target Host:** 192.168.0.100 (Local PC)
+- **Scan Policy:** Basic Network Scan
+- **Severity Base:** CVSS v3.0
+- **Scanner Type:** Local Scanner
+
+## My System Setup
+- **Target IP:** 192.168.0.100
+- **Operating System:** Windows (Based on scan results)
+- **Scan Start Time:** Today at 10:03 PM
+- **Scan Status:** Running/Completed
+- **Total Vulnerabilities Found:** 18
+
+## Vulnerability Scan Results
+
+### Overall Risk Assessment
+- **Total Vulnerabilities:** 18 identified issues
+- **Risk Distribution:**
+  - **Critical:** 0 vulnerabilities
+  - **High:** 1 vulnerability  
+  - **Medium:** 5 vulnerabilities
+  - **Low:** 0 vulnerabilities
+  - **Info:** 12 informational findings
+
+### Detailed Vulnerability Analysis
+
+#### HIGH SEVERITY (1 vulnerability)
+**1. SMB Signing Not Required (CVSS: 5.3)**
+- **Severity:** Medium-High
+- **Family:** Miscellaneous
+- **Count:** 1 instance
+- **Description:** SMB signing is not enforced, allowing potential man-in-the-middle attacks
+- **Risk Impact:** Network traffic interception and manipulation possible
+
+#### MEDIUM SEVERITY (5 vulnerabilities)
+**1. SSL Multiple Issues (Count: 12)**
+- **Family:** General SSL/TLS vulnerabilities
+- **Impact:** Encrypted communication weaknesses
+- **Risk:** Data in transit exposure
+
+**2. HTTP Multiple Issues (Count: 7)**
+- **Family:** Web Server security issues
+- **Impact:** Web service vulnerabilities
+- **Risk:** Information disclosure and service attacks
+
+**3. SMB Multiple Issues (Count: 6)**
+- **Family:** Windows file sharing vulnerabilities
+- **Impact:** Network share security weaknesses
+- **Risk:** Unauthorized file access
+
+**4. TLS Multiple Issues (Count: 3)**
+- **Family:** Transport Layer Security flaws
+- **Impact:** Secure communication compromises
+- **Risk:** Encrypted session attacks
+
+#### INFORMATIONAL FINDINGS (12 items)
+**1. Netstat Port Scanner (SSH) - Count: 45**
+- **Family:** Port scanners
+- **Purpose:** Service enumeration and discovery
+- **Impact:** Information gathering capabilities
+
+**2. DCE Services Enumeration - Count: 8**
+- **Family:** Windows service discovery
+- **Purpose:** Distributed Computing Environment analysis
+- **Impact:** Service fingerprinting
+
+**3. Service Detection - Count: 5**
+- **Family:** Service identification
+- **Purpose:** Running service inventory
+- **Impact:** Attack surface mapping
+
+**4. Microsoft Windows Multiple Issues - Count: 2**
+- **Family:** Windows-specific findings
+- **Purpose:** OS-level information gathering
+- **Impact:** System reconnaissance
+
+**5. Web Server 404 Error Code Check - Count: 2**
+- **Family:** Web server analysis
+- **Purpose:** Web service behavior analysis
+- **Impact:** Service enumeration
+
+## What I Learned
+
+### Vulnerability Scanning Concepts
+- **CVSS Scoring:** Understanding Common Vulnerability Scoring System v3.0 for risk assessment
+- **Risk Classification:** Learning to categorize vulnerabilities by severity levels
+- **Scan Policies:** Different scanning approaches for comprehensive assessment
+- **Service Enumeration:** How scanners identify running services and potential weaknesses
+
+### Security Assessment Methodology
+- **Automated Scanning:** Using professional tools for systematic vulnerability discovery
+- **Risk Prioritization:** Focus on high/critical issues first for remediation
+- **Attack Surface Analysis:** Understanding exposed services and their security implications
+- **Compliance Checking:** Identifying configuration issues against security standards
+
+### Network Security Principles
+- **SMB Security:** Importance of message signing for network file sharing
+- **SSL/TLS Hardening:** Proper configuration of encrypted communications
+- **Service Minimization:** Reducing attack surface by disabling unnecessary services
+- **Defense in Depth:** Multiple security layers for comprehensive protection
+
+## Security Observations
+
+### Critical Security Issues Identified
+
+#### 1. SMB Signing Not Required (HIGH PRIORITY)
+- **Risk Level:** High (CVSS 5.3)
+- **Attack Vector:** Network-based man-in-the-middle attacks
+- **Potential Impact:** 
+  - Network traffic interception
+  - Data manipulation in transit
+  - Credential theft through SMB relay attacks
+- **Affected Systems:** Windows file sharing services
+
+#### 2. SSL/TLS Configuration Issues (MEDIUM PRIORITY)
+- **Risk Level:** Medium
+- **Issues Found:** 12 SSL-related vulnerabilities
+- **Potential Impact:**
+  - Weak encryption protocols in use
+  - Certificate validation bypasses
+  - Downgrade attacks possible
+
+#### 3. HTTP Service Vulnerabilities (MEDIUM PRIORITY)
+- **Risk Level:** Medium  
+- **Issues Found:** 7 HTTP-related problems
+- **Potential Impact:**
+  - Information disclosure through error messages
+  - Improper security headers
+  - Service fingerprinting exposure
+
+### Positive Security Findings
+- **No Critical Vulnerabilities:** System shows good baseline security
+- **Limited High-Risk Issues:** Only 1 high-severity finding indicates decent security posture
+- **Comprehensive Service Detection:** Good visibility into running services for security management
+
+## Recommendations
+
+### Immediate Actions (High Priority)
+1. **Enable SMB Signing**
+   - Configure SMB message signing requirements
+   - Set Group Policy: "Microsoft network server: Digitally sign communications (always)"
+   - Restart SMB services after configuration
+
+2. **SSL/TLS Hardening**
+   - Disable weak cipher suites (RC4, DES, 3DES)
+   - Enforce TLS 1.2 or higher
+   - Update SSL certificates if expired/weak
+
+3. **Web Server Security**
+   - Configure proper security headers
+   - Disable unnecessary HTTP methods
+   - Update web server software
+
+### Medium-Term Improvements
+1. **Service Hardening**
+   - Disable unnecessary network services
+   - Implement service-specific security configurations
+   - Regular service inventory and review
+
+2. **Network Segmentation**
+   - Isolate critical systems
+   - Implement firewall rules
+   - Monitor network traffic
+
+3. **Security Monitoring**
+   - Deploy intrusion detection systems
+   - Enable comprehensive logging
+   - Regular vulnerability scanning schedule
+
+### Long-Term Security Strategy
+1. **Patch Management**
+   - Automated security update deployment
+   - Regular vulnerability assessment cycles
+   - Security baseline maintenance
+
+2. **Security Awareness**
+   - Regular security training
+   - Incident response procedures
+   - Security policy updates
+
+## Problems I Faced
+
+### Technical Challenges
+1. **Scanner Configuration:** Initial setup of Nessus required proper licensing and configuration
+2. **Network Connectivity:** Ensuring scanner could properly reach target system
+3. **Firewall Interference:** Some scans blocked by local firewall, requiring rule adjustments
+4. **Scan Duration:** Comprehensive scan took considerable time to complete all checks
+
+### Analysis Difficulties
+1. **Result Interpretation:** Understanding CVSS scores and their practical implications
+2. **False Positive Identification:** Distinguishing real vulnerabilities from scanner artifacts
+3. **Prioritization Challenges:** Determining which issues require immediate attention
+4. **Remediation Planning:** Mapping findings to specific corrective actions
+
+## Conclusion
+
+This vulnerability scanning assignment provided valuable hands-on experience with professional security assessment tools. The scan of my local system revealed 18 total findings, with 1 high-severity issue requiring immediate attention and 5 medium-severity issues needing remediation planning.
+
+**Key Takeaways:**
+- **SMB signing enforcement** is critical for Windows network security
+- **SSL/TLS configuration** requires ongoing attention and updates
+- **Regular vulnerability scanning** is essential for maintaining security posture
+- **Risk-based prioritization** helps focus remediation efforts effectively
+
+**Overall Security Assessment:** The system shows a reasonably good security baseline with no critical vulnerabilities, but the SMB signing issue represents a significant network security risk that requires immediate remediation.
+
+This exercise demonstrated the importance of automated vulnerability scanning in identifying security gaps that might otherwise go unnoticed, and highlighted the need for systematic security assessment as part of ongoing cybersecurity management.
